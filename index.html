@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toko Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Toko Online</h1>
+    <input type="text" id="searchInput" placeholder="Cari produk...">
+    <div class="dark-toggle">
+      <button onclick="setLightMode()">Terang</button>
+      <button onclick="setDarkMode()">Gelap</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="product-list">
+      <div class="product" data-name="Headset">
+        <img src="assets/img/headset.png" alt="Headset">
+        <h2>Headset</h2>
+        <p>Rp 150.000</p>
+        <button onclick="addToCart('Headset', 150000)">Beli</button>
+      </div>
+      <div class="product" data-name="Keyboard">
+        <img src="assets/img/keyboard.png" alt="Keyboard">
+        <h2>Keyboard</h2>
+        <p>Rp 250.000</p>
+        <button onclick="addToCart('Keyboard', 250000)">Beli</button>
+      </div>
+    </section>
+
+    <section id="cart">
+      <h2>Keranjang</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: Rp <span id="cart-total">0</span></p>
+      <button onclick="confirmOrder()">Konfirmasi Pesanan</button>
+      <p id="confirmation-text" style="display:none; margin-top:10px; color:green;"></p>
+    </section>
+
+    <section id="payment">
+      <h2>Metode Pembayaran</h2>
+      <p>GoPay: 08xxxxxxxxxx</p>
+      <p>OVO: 08xxxxxxxxxx</p>
+      <p>DANA: 08xxxxxxxxxx</p>
+      <a href="https://wa.me/6285693542022?text=Halo%20admin,%20saya%20sudah%20transfer%20dan%20ingin%20kirim%20bukti%20pembayaran." target="_blank"><button>Kirim Bukti Pembayaran</button></a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+
+<script>
+function confirmOrder() {
+  const el = document.getElementById("confirmation-text");
+  el.textContent = "✅ Apakah pesanan sesuai?";
+  el.style.display = "block";
+}
+</script>
+</body>
+
+</html>
